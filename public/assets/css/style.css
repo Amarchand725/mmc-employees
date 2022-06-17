@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif !important;
+}
+i {font-family: 'FontAwesome' !important;}
+/* section mad minds creative form */
+section.mad-mind-form {
+    padding: 30px 0px;
+}
+.row.children-detail {
+    position: relative;
+}
+section.mad-mind-form .col-md-6, section.mad-mind-form .col-md-4, section.mad-mind-form .col-md-3, section.mad-mind-form .col-md-2, section.mad-mind-form .col-md-12{
+    padding: 0 5px;
+}
+
+.col-2.del-btn {
+    position: absolute;
+    right: 0;
+}
+
+.col-2.del-btn button {
+    padding: 0;
+    color: transparent;
+    background: transparent;
+    border: none;
+}
+
+.col-2.del-btn button:after {
+    content: "\f00d";
+    position: absolute;
+    color: red;
+    font-family: fontawesome;
+    right: -6%;
+    font-size: 18px;
+}
+.form-control{
+    border-color: #d3d2d2 !important;
+    border-radius: 0 !important;
+}
+.form-control:focus{
+    box-shadow: 0 0 0 0.2rem rgb(255 118 244 / 35%) !important;
+}
+.col-md-6.radioz {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+span.danger {
+    font-weight: 500;
+    color: red;
+    font-size: 12px;
+}
+section.mad-mind-form h1 {
+    text-transform: uppercase;
+    margin: 20px 0;
+    font-size: 30px;
+    font-weight: 700;
+    color: #20bec7;
+    text-shadow: 1px 1px 2px black;
+}
+.row.siblingss .col-md-6 {
+    border: 1px solid #eee;
+}
+.sibling {
+    padding: 5px 0;
+}
+.row.siblingss{
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+form.my-repeater {
+    border: 1px solid #e3e3e3;
+    padding: 0px;
+    /* background: linear-gradient(45deg, #ab7bbf, transparent); */
+    /* box-shadow: -2px 2px 6px 0px #ab7bbf; */
+}
+.btn-danger:not(:disabled):not(.disabled).active:focus, .btn-danger:not(:disabled):not(.disabled):active:focus, .show>.btn-danger.dropdown-toggle:focus{
+    box-shadow: none !important;
+}
+.btn-danger:not(:disabled):not(.disabled).active, .btn-danger:not(:disabled):not(.disabled):active, .show>.btn-danger.dropdown-toggle{
+    background-color: transparent !important;
+    color: transparent !important;
+    border: none !important;
+}
+form.my-repeater .form-group {
+    /* background: linear-gradient(45deg, #fff, #8e7c95); */
+    /* border: 1px solid; */
+    /* padding: 5px; */
+    /* border-radius: 5px; */
+}
+/* .col-md-4 label {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 !important;
+} */
+
+h1.doc-req {
+    text-transform: capitalize !important;
+    background: #aa4d9e;
+    color: #fff !important;
+    max-width: fit-content;
+    padding: 5px 20px;
+}
+
+ul.doc-details {
+    list-style: none;
+    padding-left: 5%;
+}
+
+ul.doc-details li {
+    font-size: 16px;
+    font-weight: 700;
+    position: relative;
+}
+
+ul.doc-details li:before {
+    content: "";
+    position: absolute;
+    background: #fff;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    left: -7%;
+    top: 7px;
+    border: 2px solid #bf0eb9;
+}
+.col-md-3.radioz {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.col-md-3.radioz .form-check-input {
+    margin-top: 1rem;
+}
+.sibling h3 {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.row.siblingss .col-md-3 h3 {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+}
+.col-md-3.radioz label{
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+.row.date-sig .col-md-6 label {
+    font-weight: 600;
+    margin: 0;
+    padding: 10px 0;
+}
+
+/* css for pagination */
+.list-wrapper {
+	padding: 0 30px;
+	overflow: hidden;
+    background-color: whitesmoke;
+}
+
+.list-item {
+	background: transparent;
+    margin-bottom: 10px;
+    box-shadow: none;
+}
+
+.simple-pagination ul {
+	margin: 0 0 20px;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+
+.simple-pagination li {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.simple-pagination li a,
+.simple-pagination li span {
+	color: #666;
+	padding: 5px 10px;
+	text-decoration: none;
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	box-shadow: 0px 0px 10px 0px #EEE;
+}
+
+.simple-pagination .current {
+	color: #FFF;
+	background-color: #aa4d9e;
+	border-color: #c1c1c1;
+}
+
+.simple-pagination .prev.current,
+.simple-pagination .next.current {
+	background: #76246c;
+}
+.back-image{
+    background: url(../images/bannermadminds.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding: 140px 0;
+    width: 100%;
+    display: block !important;
+    margin: 0 auto !important;
+}
+.col-md-12.submit-btn input {padding: 10px 30px;font-weight: 600;text-transform: uppercase;}
+
+/* responsive css */
+@media screen and (max-width:768px){
+    section.mad-mind-form h1{
+        font-size: 20px;
+    }
+    span.danger{
+        font-size: 11px;
+    }
+    .col-md-3 label{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width:425px){
+    .back-image{
+        padding: 60px 0;
+    }
+    ul.doc-details li{
+        font-size: 12px;
+    }
+    .row.siblingss .col-md-3 h3{
+        text-align: center;
+    }
+}
+/* .list-wrapper input {
+    padding: 10px 10px;
+    height: 50px;
+} */
