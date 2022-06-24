@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2022 at 10:13 PM
+-- Generation Time: Jun 24, 2022 at 06:43 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -54,6 +54,14 @@ CREATE TABLE `contact_details` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `contact_details`
+--
+
+INSERT INTO `contact_details` (`id`, `employee_id`, `home_ptcl_no`, `personal_mobile_no`, `personal_email`, `created_at`, `updated_at`) VALUES
+(1, 1, '+1 (614) 813-4432', '+1 (629) 512-9877', 'negilyg@mailinator.com', '2022-06-23 18:59:53', '2022-06-23 18:59:53'),
+(2, 2, '+1 (614) 813-4432', '+1 (629) 512-9877', 'negilyg@mailinator.com', '2022-06-23 19:08:49', '2022-06-23 19:08:49');
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +78,16 @@ CREATE TABLE `education` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `education`
+--
+
+INSERT INTO `education` (`id`, `employee_id`, `particular`, `year`, `name_of_institute`, `devision_or_grade`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Cooke and Floyd Associates', '+1 (536) 317-9285', 'Ross Pate LLC', 'Sharp and Banks Inc', '2022-06-23 19:00:08', '2022-06-23 19:00:08'),
+(2, 1, 'Baird Boone Inc', '+1 (136) 838-4086', 'Hammond and Travis Associates', 'Frazier Cook Trading', '2022-06-23 19:00:08', '2022-06-23 19:00:08'),
+(3, 1, 'Sharp and Butler Inc', '+1 (654) 457-8552', 'Gallagher Horne Traders', 'Craft Stout LLC', '2022-06-23 19:00:08', '2022-06-23 19:00:08'),
+(5, 2, 'Little and Harrell Traders', '+1 (407) 391-4674', 'Murphy House Plc', 'Nielsen Jefferson Associates', '2022-06-23 19:09:19', '2022-06-23 19:09:19');
 
 -- --------------------------------------------------------
 
@@ -90,6 +108,14 @@ CREATE TABLE `emergency_contacts` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `emergency_contacts`
+--
+
+INSERT INTO `emergency_contacts` (`id`, `employee_id`, `name_of_contact_person`, `relationship`, `residential_contact`, `mobile`, `health_condition`, `hobbies`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Gonzalez Sharpe Inc', 'other', '+1 (655) 865-5501', '+1 (846) 322-9339', 'Laborum ut voluptas', 'Veniam veritatis co', '2022-06-23 19:00:08', '2022-06-23 19:00:08'),
+(2, 2, 'Mayer and Burt Associates', 'brother', '+1 (702) 952-7276', '+1 (567) 326-9822', 'Culpa aspernatur et', 'Ea consequatur dolor', '2022-06-23 19:09:13', '2022-06-23 19:09:13');
+
 -- --------------------------------------------------------
 
 --
@@ -99,6 +125,7 @@ CREATE TABLE `emergency_contacts` (
 CREATE TABLE `employees` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) DEFAULT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `form_status` tinyint(1) NOT NULL DEFAULT 0,
   `full_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `father_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -114,6 +141,14 @@ CREATE TABLE `employees` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`id`, `user_id`, `token`, `form_status`, `full_name`, `father_name`, `dob`, `place_of_birth`, `cnic`, `cnic_expiry`, `blood_group`, `religion`, `marital_status`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 2, '62b5e740a8a00', 0, 'Boris Gay', 'Chancellor Mooney', '2006-11-01', 'Reagan Huber', 'Mikayla Powers', '2004-10-22', 'Tasha Maynard', 'Pamela Aguirre', 1, 1, NULL, '2022-06-23 18:59:53', '2022-06-23 18:59:53'),
+(2, 2, '62b5e733c22c3', 0, 'Boris Gay', 'Chancellor Mooney', '2006-11-01', 'Reagan Huber', 'Mikayla Powers', '2004-10-22', 'Tasha Maynard', 'Pamela Aguirre', 1, 1, NULL, '2022-06-23 19:08:49', '2022-06-23 19:09:07');
 
 -- --------------------------------------------------------
 
@@ -133,6 +168,14 @@ CREATE TABLE `employee_documents` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `employee_documents`
+--
+
+INSERT INTO `employee_documents` (`id`, `employee_id`, `cnic_front`, `cnic_back`, `passport`, `updated_cv`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, '24-06-2022-00010162b4febd86e55.jpg', '24-06-2022-00010162b4febd87506.jpg', '24-06-2022-00010162b4febd8785d.jpg', '24-06-2022-00010162b4febd87b91.jpg', NULL, '2022-06-23 19:01:01', '2022-06-23 19:01:01'),
+(2, 2, '24-06-2022-00103462b500fa7393f.jpg', '24-06-2022-00103462b500fa73ebf.jpg', '24-06-2022-00103462b500fa74270.jpg', '24-06-2022-00103462b500fa7459a.jpg', NULL, '2022-06-23 19:10:34', '2022-06-23 19:10:34');
+
 -- --------------------------------------------------------
 
 --
@@ -142,12 +185,23 @@ CREATE TABLE `employee_documents` (
 CREATE TABLE `employee_education_documents` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `employee_id` bigint(20) NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `document` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `deleted_at` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `employee_education_documents`
+--
+
+INSERT INTO `employee_education_documents` (`id`, `employee_id`, `type`, `name`, `document`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 'education', NULL, '24-06-2022-00010162b4febd9315c.jpg', NULL, '2022-06-23 19:01:01', '2022-06-23 19:01:01'),
+(2, 1, 'additional', NULL, '24-06-2022-00010162b4febdbfd99.jpg', NULL, '2022-06-23 19:01:01', '2022-06-23 19:01:01'),
+(3, 2, 'education', NULL, '24-06-2022-00103462b500fa7f80b.jpg', NULL, '2022-06-23 19:10:34', '2022-06-23 19:10:34'),
+(4, 2, 'additional', NULL, '24-06-2022-00103462b500faa228d.jpg', NULL, '2022-06-23 19:10:34', '2022-06-23 19:10:34');
 
 -- --------------------------------------------------------
 
@@ -165,6 +219,14 @@ CREATE TABLE `employee_experience_certificates` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `employee_experience_certificates`
+--
+
+INSERT INTO `employee_experience_certificates` (`id`, `employee_id`, `name`, `document`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, NULL, '24-06-2022-00010162b4febdcc17f.jpg', NULL, '2022-06-23 19:01:01', '2022-06-23 19:01:01'),
+(2, 2, NULL, '24-06-2022-00103462b500faa82d7.jpg', NULL, '2022-06-23 19:10:34', '2022-06-23 19:10:34');
+
 -- --------------------------------------------------------
 
 --
@@ -179,6 +241,22 @@ CREATE TABLE `employee_forms` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `employee_forms`
+--
+
+INSERT INTO `employee_forms` (`id`, `employee_id`, `name`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 'form-1', 1, '2022-06-23 18:59:53', '2022-06-23 18:59:53'),
+(2, 1, 'form-2', 1, '2022-06-23 19:00:08', '2022-06-23 19:00:08'),
+(3, 1, 'form-3', 1, '2022-06-23 19:00:19', '2022-06-23 19:00:19'),
+(4, 1, 'form-4', 1, '2022-06-23 19:01:01', '2022-06-23 19:01:01'),
+(5, 1, 'form-5', 1, '2022-06-23 19:01:21', '2022-06-23 19:01:21'),
+(6, 2, 'form-1', 1, '2022-06-23 19:08:50', '2022-06-23 19:08:50'),
+(7, 2, 'form-2', 1, '2022-06-23 19:09:13', '2022-06-23 19:09:13'),
+(8, 2, 'form-3', 1, '2022-06-23 19:09:57', '2022-06-23 19:09:57'),
+(9, 2, 'form-4', 1, '2022-06-23 19:10:34', '2022-06-23 19:10:34'),
+(10, 2, 'form-5', 1, '2022-06-23 19:10:47', '2022-06-23 19:10:47');
 
 -- --------------------------------------------------------
 
@@ -195,6 +273,14 @@ CREATE TABLE `employee_salary_slips` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `employee_salary_slips`
+--
+
+INSERT INTO `employee_salary_slips` (`id`, `employee_id`, `name`, `slip`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, NULL, '24-06-2022-00010162b4febddda11.jpg', NULL, '2022-06-23 19:01:01', '2022-06-23 19:01:01'),
+(2, 2, NULL, '24-06-2022-00103462b500fac08c8.jpg', NULL, '2022-06-23 19:10:34', '2022-06-23 19:10:34');
 
 -- --------------------------------------------------------
 
@@ -217,6 +303,16 @@ CREATE TABLE `employment_histories` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `employment_histories`
+--
+
+INSERT INTO `employment_histories` (`id`, `employee_id`, `name_of_employer`, `address`, `contact_person`, `contact_no`, `employee_from`, `employee_to`, `last_designation`, `reason_for_leaving`, `created_at`, `updated_at`) VALUES
+(1, 1, '+1 (345) 773-8854', '+1 (696) 563-4205', 'pujirivy@mailinator.com', 'pujirivy@mailinator.com', '1982-02-08', '1972-03-24', 'Hodges Justice Plc', 'Et velit nisi lorem', '2022-06-23 19:00:08', '2022-06-23 19:00:08'),
+(2, 1, '+1 (683) 802-8533', '+1 (361) 392-1121', 'tekyla@mailinator.com', 'tekyla@mailinator.com', '1972-01-15', '2014-07-23', 'Kelley Maldonado Plc', 'Ducimus atque sed n', '2022-06-23 19:00:08', '2022-06-23 19:00:08'),
+(5, 2, '+1 (643) 619-6674', '+1 (988) 633-9749', 'zalado@mailinator.com', 'zalado@mailinator.com', '1978-05-07', '2001-05-22', 'Burke and Cantu Traders', 'Sint fugiat nesciun', '2022-06-23 19:09:19', '2022-06-23 19:09:19'),
+(6, 2, '+1 (446) 622-8133', '+1 (797) 297-5822', 'sygyj@mailinator.com', 'sygyj@mailinator.com', '1982-08-06', '1973-08-23', 'Chaney Leonard Inc', 'Quia necessitatibus', '2022-06-23 19:09:19', '2022-06-23 19:09:19');
+
 -- --------------------------------------------------------
 
 --
@@ -233,6 +329,14 @@ CREATE TABLE `extended_families` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `extended_families`
+--
+
+INSERT INTO `extended_families` (`id`, `employee_id`, `father`, `mother`, `brother`, `sister`, `created_at`, `updated_at`) VALUES
+(1, 1, 0, 0, 0, 0, '2022-06-23 18:59:53', '2022-06-23 18:59:53'),
+(2, 2, 0, 0, 0, 0, '2022-06-23 19:08:49', '2022-06-23 19:08:49');
 
 -- --------------------------------------------------------
 
@@ -264,6 +368,16 @@ CREATE TABLE `general_information` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `general_information`
+--
+
+INSERT INTO `general_information` (`id`, `employee_id`, `full_name`, `designation`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Chantale Macias', 'Oscar Schroeder', '2022-06-23 19:01:21', '2022-06-23 19:01:21'),
+(2, 1, 'Adele Mcconnell', 'Margaret Gates', '2022-06-23 19:01:21', '2022-06-23 19:01:21'),
+(3, 2, 'Nina Cummings', 'Lani Mcfadden', '2022-06-23 19:10:46', '2022-06-23 19:10:46'),
+(4, 2, 'Kathleen Weaver', 'Olivia Whitley', '2022-06-23 19:10:46', '2022-06-23 19:10:46');
 
 -- --------------------------------------------------------
 
@@ -335,7 +449,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (31, '2022_06_16_185314_create_employee_documents_table', 13),
 (33, '2022_06_14_190342_create_education_table', 14),
 (34, '2022_06_14_184907_create_extended_families_table', 15),
-(35, '2022_06_17_175541_create_notifications_table', 16);
+(35, '2022_06_17_175541_create_notifications_table', 16),
+(36, '2022_06_20_184630_create_tick_answers_table', 17);
 
 -- --------------------------------------------------------
 
@@ -391,20 +506,12 @@ CREATE TABLE `notifications` (
 --
 
 INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `data`, `read_at`, `created_at`, `updated_at`) VALUES
-('128c90a8-38d2-46d2-a731-fceadb47abb7', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 1, '{\"data\":\"You have shared form with Mr\\/Mrs. ASJADon this email address asjadmmc67@gmail.com\"}', NULL, '2022-06-17 14:25:18', '2022-06-17 14:25:18'),
-('17612b34-6f57-4daf-8e3d-5224c743c51f', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 1, '{\"data\":\"You have shared form with Mr\\/Mrs. ASJADon this email address asjadmmc67@gmail.com\"}', NULL, '2022-06-17 14:22:35', '2022-06-17 14:22:35'),
-('2ee8cc7f-7e8e-46ad-9a9d-83e472daaddd', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 1, '{\"data\":\"You have shared form with Mr\\/Mrs. ASJADon this email address asjadmmc67@gmail.com\"}', NULL, '2022-06-17 14:47:51', '2022-06-17 14:47:51'),
-('34083c4c-4b46-454e-bab9-4584e042945b', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 1, '{\"data\":\"You have shared form with Mr\\/Mrs. ASJADon this email address asjadmmc67@gmail.com\"}', NULL, '2022-06-17 15:09:09', '2022-06-17 15:09:09'),
-('37517854-2725-41ad-843e-1151b1ce99d0', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 2, '{\"data\":\"You have recieved form kindly fill it with correct data.\"}', NULL, '2022-06-17 14:25:24', '2022-06-17 14:25:24'),
-('60f2f8db-9e24-4661-9a1d-39ce75c111a0', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 1, '{\"data\":\"You have shared form with Mr\\/Mrs. ASJADon this email address asjadmmc67@gmail.com\"}', NULL, '2022-06-17 13:55:50', '2022-06-17 13:55:50'),
-('6c2276f4-865c-486b-bad0-9fc037f1cea8', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 2, '{\"data\":\"You have recieved form kindly fill it with correct data.\"}', NULL, '2022-06-17 14:47:57', '2022-06-17 14:47:57'),
-('80a523c9-3ba5-4901-bf6d-cd6cedefa029', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 1, '{\"data\":\"You have shared form with Mr\\/Mrs. ASJADon this email address asjadmmc67@gmail.com\"}', NULL, '2022-06-17 14:38:37', '2022-06-17 14:38:37'),
-('8b17d7bd-3a23-4392-9db8-7783337e202f', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 2, '{\"data\":\"You have recieved form kindly fill it with correct data.\"}', NULL, '2022-06-17 14:05:07', '2022-06-17 14:05:07'),
-('9283ef04-01d3-4a03-a126-3df99833a0d5', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 2, '{\"data\":\"You have recieved form kindly fill it with correct data.\"}', NULL, '2022-06-17 15:09:15', '2022-06-17 15:09:15'),
-('cd55c89e-3b66-404d-8c26-8debc4695a53', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 2, '{\"data\":\"You have recieved form kindly fill it with correct data.\"}', NULL, '2022-06-17 13:55:56', '2022-06-17 13:55:56'),
-('cfd55985-a7c6-4529-adec-29c2645254b7', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 1, '{\"data\":\"You have shared form with Mr\\/Mrs. ASJADon this email address asjadmmc67@gmail.com\"}', NULL, '2022-06-17 14:05:02', '2022-06-17 14:05:02'),
-('e0587a82-cdef-4a8d-b30c-c66b1d84b67f', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 2, '{\"data\":\"You have recieved form kindly fill it with correct data.\"}', NULL, '2022-06-17 14:38:43', '2022-06-17 14:38:43'),
-('f6efff61-d8ae-4ced-a103-82ea76e00005', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 2, '{\"data\":\"You have recieved form kindly fill it with correct data.\"}', NULL, '2022-06-17 14:22:42', '2022-06-17 14:22:42');
+('218c637d-d14d-4964-b676-620b197a6084', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 1, '{\"data\":\"Mr\\/Mrs. ASJAD has submited form successfully.\"}', NULL, '2022-06-23 19:10:50', '2022-06-23 19:10:50'),
+('7977420a-9908-4416-a6cc-596e137e69eb', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 1, '{\"data\":\"You have shared form with Mr\\/Mrs. ASJADon this email address asjadmmc67@gmail.com\"}', NULL, '2022-06-23 18:58:42', '2022-06-23 18:58:42'),
+('8d81b9db-2e66-4739-96d3-47bb4634a4e2', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 1, '{\"data\":\"Mr\\/Mrs. HARDIK SAVANI has submited form successfully.\"}', NULL, '2022-06-23 19:01:24', '2022-06-23 19:01:24'),
+('8ef97b29-bf15-4917-95c9-198b472381da', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 2, '{\"data\":\"You have recieved form kindly fill it with correct data.\"}', NULL, '2022-06-23 18:58:45', '2022-06-23 18:58:45'),
+('adeb9ca4-f38c-4045-8442-abb569727c62', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 1, '{\"data\":\"You have submitted your form successfully.\"}', NULL, '2022-06-23 19:01:27', '2022-06-23 19:01:27'),
+('eb78b834-19d6-48e4-8485-a2cc9e8b68ae', 'App\\Notifications\\AppNotification', 'App\\Models\\User', 2, '{\"data\":\"You have submitted your form successfully.\"}', NULL, '2022-06-23 19:10:53', '2022-06-23 19:10:53');
 
 -- --------------------------------------------------------
 
@@ -423,6 +530,16 @@ CREATE TABLE `other_qualifications` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `other_qualifications`
+--
+
+INSERT INTO `other_qualifications` (`id`, `employee_id`, `course`, `year`, `name_of_institute`, `course_period`, `grade_or_percentage`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Sharp and Butler Inc', '+1 (306) 478-7696', 'Owens and Roberts Co', NULL, 'Suarez and Harvey Trading', '2022-06-23 19:00:08', '2022-06-23 19:00:08'),
+(2, 1, 'Sharp and Butler Inc', '+1 (906) 602-3703', 'Morrow Farmer Co', NULL, 'Ortega and Boyer Co', '2022-06-23 19:00:08', '2022-06-23 19:00:08'),
+(3, 1, 'Sharp and Butler Inc', '+1 (427) 553-6549', 'Acosta Riley LLC', NULL, 'Willis Lara Co', '2022-06-23 19:00:08', '2022-06-23 19:00:08'),
+(5, 2, 'Little and Harrell Traders', '+1 (992) 393-5908', 'Clarke Burt Inc', NULL, 'Logan Beck Associates', '2022-06-23 19:09:19', '2022-06-23 19:09:19');
 
 -- --------------------------------------------------------
 
@@ -537,6 +654,16 @@ CREATE TABLE `references` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `references`
+--
+
+INSERT INTO `references` (`id`, `employee_id`, `full_name`, `relationship`, `company_name`, `designation`, `address`, `contact_no`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Delgado Jacobson LLC', 'Sanders and Skinner LLC', 'Moss and Dean Inc', 'Beach Joyce Plc', 'Aut neque commodi cu', '+1 (246) 712-2865', '2022-06-23 19:00:19', '2022-06-23 19:00:19'),
+(2, 1, 'Stewart Valenzuela Plc', 'Clarke and Pearson Traders', 'Benjamin Mason Inc', 'Meadows and Noel Inc', 'Nobis velit possimu', '+1 (486) 859-9577', '2022-06-23 19:00:19', '2022-06-23 19:00:19'),
+(3, 2, 'Holcomb and Estrada Associates', 'Frye Marshall Co', 'Franco Stanton Associates', 'Flynn Nixon Associates', 'Et ipsum velit dolor', '+1 (566) 856-2905', '2022-06-23 19:09:57', '2022-06-23 19:09:57'),
+(4, 2, 'Gregory and Lester Traders', 'Jefferson and Nolan Inc', 'Whitfield and Holmes Associates', 'Murray and Meadows Plc', 'Aliquam qui irure cu', '+1 (766) 386-8578', '2022-06-23 19:09:57', '2022-06-23 19:09:57');
+
 -- --------------------------------------------------------
 
 --
@@ -555,6 +682,16 @@ CREATE TABLE `residential_addresses` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `residential_addresses`
+--
+
+INSERT INTO `residential_addresses` (`id`, `employee_id`, `type`, `living_since`, `nearest_landmark`, `peroperty_type`, `describe_other`, `complete_address`, `created_at`, `updated_at`) VALUES
+(1, 1, 'current', 'Lyle Owen', 'September Lowery', 'Nathan Sutton', NULL, 'Saepe doloremque ull', '2022-06-23 18:59:53', '2022-06-23 18:59:53'),
+(2, 1, 'permanent', 'Kiona Roth', 'Igor Kent', 'Nicholas Mayo', NULL, 'Adipisicing est ipsa', '2022-06-23 18:59:53', '2022-06-23 18:59:53'),
+(3, 2, 'current', 'Lyle Owen', 'September Lowery', 'Nathan Sutton', NULL, 'Saepe doloremque ull', '2022-06-23 19:08:49', '2022-06-23 19:08:49'),
+(4, 2, 'permanent', 'Kiona Roth', 'Igor Kent', 'Nicholas Mayo', NULL, 'Adipisicing est ipsa', '2022-06-23 19:08:49', '2022-06-23 19:08:49');
 
 -- --------------------------------------------------------
 
@@ -684,6 +821,64 @@ CREATE TABLE `spouses` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tick_answers`
+--
+
+CREATE TABLE `tick_answers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `employee_id` bigint(20) NOT NULL,
+  `question_id` bigint(20) NOT NULL,
+  `answer` tinyint(1) NOT NULL DEFAULT 0,
+  `details` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tick_answers`
+--
+
+INSERT INTO `tick_answers` (`id`, `employee_id`, `question_id`, `answer`, `details`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 0, NULL, '2022-06-23 19:01:21', '2022-06-23 19:01:21'),
+(2, 1, 2, 1, 'Belle Pope', '2022-06-23 19:01:21', '2022-06-23 19:01:21'),
+(3, 1, 3, 1, 'Laurel Waters', '2022-06-23 19:01:21', '2022-06-23 19:01:21'),
+(4, 1, 4, 0, 'Hedda Wilson', '2022-06-23 19:01:21', '2022-06-23 19:01:21'),
+(5, 1, 5, 0, 'Graiden Joyce', '2022-06-23 19:01:21', '2022-06-23 19:01:21'),
+(6, 2, 1, 1, 'Todd Harmon', '2022-06-23 19:10:46', '2022-06-23 19:10:47'),
+(7, 2, 2, 0, NULL, '2022-06-23 19:10:46', '2022-06-23 19:10:46'),
+(8, 2, 3, 1, 'Gemma Petersen', '2022-06-23 19:10:47', '2022-06-23 19:10:47'),
+(9, 2, 4, 0, 'Damon Clarke', '2022-06-23 19:10:47', '2022-06-23 19:10:47'),
+(10, 2, 5, 0, 'Buffy Scott', '2022-06-23 19:10:47', '2022-06-23 19:10:47');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tick_questions`
+--
+
+CREATE TABLE `tick_questions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `question` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_yes_no` tinyint(1) NOT NULL DEFAULT 0,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tick_questions`
+--
+
+INSERT INTO `tick_questions` (`id`, `question`, `is_yes_no`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Any plans for higher education or career development?', 1, 1, '2022-06-20 18:20:35', '2022-06-20 18:20:35'),
+(2, 'Any political affiliation?', 1, 1, '2022-06-20 18:20:35', '2022-06-20 18:20:35'),
+(3, 'Any affiliation with NGOs?', 1, 1, '2022-06-20 18:21:24', '2022-06-20 18:21:24'),
+(4, 'Any membership (club, board, association etc…)?', 0, 1, '2022-06-20 18:21:24', '2022-06-20 18:21:24'),
+(5, 'Who referred you for this job?', 0, 1, '2022-06-20 18:21:54', '2022-06-20 18:21:54');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -708,8 +903,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `form_status`, `is_shared`, `sent_times`, `share_token`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Hardik Savani', 'chandamar725@gmail.com', NULL, '$2y$10$Ek0ULeVFv9J21bnlgHgH3erBRu274c96t29YJ4iQcnogPak2TkML2', NULL, 0, 0, 0, NULL, NULL, '2022-06-14 13:04:57', '2022-06-14 13:04:57'),
-(2, 'Asjad', 'asjadmmc67@gmail.com', NULL, NULL, NULL, 0, 1, 7, '62acdf5f64726', NULL, '2022-06-17 12:03:22', '2022-06-17 15:09:15');
+(1, 'Hardik Savani', 'admin@gmail.com', NULL, '$2y$10$Ek0ULeVFv9J21bnlgHgH3erBRu274c96t29YJ4iQcnogPak2TkML2', NULL, 1, 0, 0, NULL, NULL, '2022-06-14 13:04:57', '2022-06-23 16:17:17'),
+(2, 'Asjad', 'asjadmmc67@gmail.com', NULL, NULL, NULL, 1, 1, 3, '62b4fe2aa6de2', NULL, '2022-06-17 12:03:22', '2022-06-23 19:10:47');
 
 --
 -- Indexes for dumped tables
@@ -911,6 +1106,18 @@ ALTER TABLE `spouses`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tick_answers`
+--
+ALTER TABLE `tick_answers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tick_questions`
+--
+ALTER TABLE `tick_questions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -931,67 +1138,67 @@ ALTER TABLE `children`
 -- AUTO_INCREMENT for table `contact_details`
 --
 ALTER TABLE `contact_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `education`
 --
 ALTER TABLE `education`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `emergency_contacts`
 --
 ALTER TABLE `emergency_contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `employee_documents`
 --
 ALTER TABLE `employee_documents`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `employee_education_documents`
 --
 ALTER TABLE `employee_education_documents`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `employee_experience_certificates`
 --
 ALTER TABLE `employee_experience_certificates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `employee_forms`
 --
 ALTER TABLE `employee_forms`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `employee_salary_slips`
 --
 ALTER TABLE `employee_salary_slips`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `employment_histories`
 --
 ALTER TABLE `employment_histories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `extended_families`
 --
 ALTER TABLE `extended_families`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1003,7 +1210,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `general_information`
 --
 ALTER TABLE `general_information`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `mail_settings`
@@ -1015,13 +1222,13 @@ ALTER TABLE `mail_settings`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `other_qualifications`
 --
 ALTER TABLE `other_qualifications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -1051,13 +1258,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `references`
 --
 ALTER TABLE `references`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `residential_addresses`
 --
 ALTER TABLE `residential_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -1076,6 +1283,18 @@ ALTER TABLE `settings`
 --
 ALTER TABLE `spouses`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tick_answers`
+--
+ALTER TABLE `tick_answers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `tick_questions`
+--
+ALTER TABLE `tick_questions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`

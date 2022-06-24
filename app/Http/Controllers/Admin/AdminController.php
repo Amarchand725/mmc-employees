@@ -141,7 +141,7 @@ class AdminController extends Controller
             'body' => 'You have shared form with Mr/Mrs. '.\Str::upper($user->name). 'on this email address '. $user->email,
             'thanks' => '',
             'actionText' => 'Fom link.',
-            'actionURL' => route('employee-reg-first-form', $share_token),
+            'actionURL' => route('step-1', $share_token),
         ];
   
         Notification::send($admin, new AppNotification($details));
@@ -151,7 +151,7 @@ class AdminController extends Controller
             'body' => 'You have recieved form kindly fill it with correct data.',
             'thanks' => 'Regards MMC!',
             'actionText' => 'Form link',
-            'actionURL' => route('employee-reg-first-form', $share_token),
+            'actionURL' => route('step-1', $share_token),
         ];
   
         Notification::send($user, new AppNotification($details));

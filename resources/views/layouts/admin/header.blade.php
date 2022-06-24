@@ -1,8 +1,4 @@
 <header class="main-header">
-    {{-- <a href="{{ route('dashboard') }}" class="logo">
-        <img src="{{ asset('public/assets/images/logo.png') }}" style="width:80px" alt="">
-        <span class="logo-lg">{{ Auth::user()->name }}</span>
-    </a> --}}
     <a href="{{ route('dashboard') }}" class="logo">
         <img src="{{ asset('public/assets/images/logo.png') }}" style="width:130px;position:absolute;left:3%;top:12%;" alt="">
         <span class="logo-lg" style="position:absolute;top:130%;left:3%;">{{ Auth::user()->name }}</span>
@@ -18,16 +14,12 @@
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-                <li>
-                    <a href="{{ url('/') }}" target="_blank">Visit Website</a>
-                </li>
-
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         @if(Auth::user()->image)
-                            <img src="{{ asset('public/admin/img') }}/{{ Auth::user()->image }}" class="user-image" alt="user photo"> 
-                        @else 
-                            <img src="{{ asset('public/admin/img/dummy-user.png') }}" class="user-image" alt="user photo"> 
+                            <img src="{{ asset('public/admin/img') }}/{{ Auth::user()->image }}" class="user-image" alt="user photo">
+                        @else
+                            <img src="{{ asset('public/admin/img/dummy-user.png') }}" class="user-image" alt="user photo">
                         @endif
                         <span class="hidden-xs"></span>
                     </a>

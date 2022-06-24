@@ -21,19 +21,19 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="">Full Name</label>
-                                <input type="text" name="names[]" class="form-control" placeholder="Full Name">
+                                <input type="text" name="names[]" value="{{ isset($model->haveGeneralInformation)?$model->haveGeneralInformation[0]->full_name:'' }}" class="form-control" placeholder="Full Name">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="">Designation</label>
-                                <input type="text" name="designations[]" class="form-control" placeholder="Designation">
+                                <input type="text" value="{{ isset($model->haveGeneralInformation)?$model->haveGeneralInformation[0]->designation:'' }}" name="designations[]" class="form-control" placeholder="Department Name">
                             </div>
-                            <div class="form-group col-md-6 mt-3">
+                            <div class="form-group col-md-6">
                                 <label for="">Full Name</label>
-                                <input type="text" name="names[]" class="form-control" placeholder="Full Name">
+                                <input type="text" name="names[]" value="{{ isset($model->haveGeneralInformation)?$model->haveGeneralInformation[1]->full_name:'' }}" class="form-control" placeholder="Full Name">
                             </div>
-                            <div class="form-group col-md-6 mt-3">
+                            <div class="form-group col-md-6">
                                 <label for="">Designation</label>
-                                <input type="text" name="designations[]" class="form-control" placeholder="Designation">
+                                <input type="text" value="{{ isset($model->haveGeneralInformation)?$model->haveGeneralInformation[1]->designation:'' }}" name="designations[]" class="form-control" placeholder="Department Name">
                             </div>
                         </div>
                         <div class="row siblingss">

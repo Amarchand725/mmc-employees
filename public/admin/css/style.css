@@ -27,6 +27,10 @@ input, select, textarea {
 	background-position: center center;
 }
 
+thead {
+    color: #ab4c9e;
+}
+
 .error {
 	color: red!important;
 	border: 0;

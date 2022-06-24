@@ -24,17 +24,18 @@
                 <div class="box-body">
                     <div class="row">
                         <div class="col-sm-1">Search:</div>
-                        <div class="d-flex col-sm-6">
-                            <input type="text" id="search" class="form-control" placeholder="Search">
+                        <div class="d-flex col-sm-10">
+                            <input type="text" id="search" class="form-control" placeholder="Search by Name or Email">
                         </div>
-                        <div class="d-flex col-sm-5">
+                        {{-- <div class="d-flex col-sm-5">
                             <select name="" id="status" class="form-control status" style="margin-bottom:5px">
                                 <option value="All" selected>Search by status</option>
                                 <option value="1">Active</option>
                                 <option value="2">In-Active</option>
                             </select>
-                        </div>
+                        </div> --}}
                     </div>
+                    <br>
                     <table id="" class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -58,10 +59,10 @@
                                     <td>
                                         @if($user->form_status)
                                             <span class="label label-success"><i class="fa fa-check"></i> Completed</span>
-                                        @else 
+                                        @else
                                             @if($user->is_shared)
                                                 <span class="label label-info"><i class="fa fa-spinner"></i> Processing</span>
-                                            @else 
+                                            @else
                                                 <span class="label label-warning"><i class="fa fa-pause"></i> Awaiting</span>
                                             @endif
                                         @endif
@@ -71,7 +72,7 @@
                                         <a href="{{ route('user.edit', $user->id)}}" data-toggle="tooltip" data-placement="top" title="Edit User" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
                                         @if($user->form_status)
                                             <a href="{{ route('user.show', $user->id) }}" data-toggle="tooltip" data-placement="top" title="Show User Details" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> Show</a>
-                                        @else 
+                                        @else
                                             <button class="btn btn-info btn-xs share-link-btn" id="share-link-btn" data-toggle="tooltip" data-placement="top" title="Share form link" value="{{ $user->id }}"><i class="fa fa-share"></i> Share Link</button>
                                             <button class="btn btn-info btn-xs share-link-btn" id="loader-btn" style="display: none" data-toggle="tooltip" data-placement="top" title="Share form link" value="{{ $user->id }}"><img src="{{ asset('public/assets/images/loader.gif') }}" style="width: 20px" alt=""></button>
                                         @endif
@@ -99,7 +100,7 @@
     <script>
         $(document).on('click', '.share-link-btn', function(){
             var user_id = $(this).val();
-            
+
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You want to share form link!",

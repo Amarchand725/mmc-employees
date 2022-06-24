@@ -18,12 +18,22 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 
-Route::get('employee-reg-first-form/{id}', 'EmployeeController@EmployeeRegFirstForm')->name('employee-reg-first-form');
-Route::get('employee-reg-second-form/{id}', 'EmployeeController@EmployeeRegSecondForm')->name('employee-reg-second-form');
-Route::get('employee-reg-third-form/{id}', 'EmployeeController@EmployeeRegThirdForm')->name('employee-reg-third-form');
-Route::get('employee-reg-fourth-form/{id}', 'EmployeeController@EmployeeRegFourthdForm')->name('employee-reg-fourth-form');
-Route::get('employee-reg-fifth-form/{id}', 'EmployeeController@EmployeeRegFifthdForm')->name('employee-reg-fifth-form');
+Route::get('step-1/{id}', 'EmployeeController@stepOne')->name('step-1');
+Route::get('step-2/{id}', 'EmployeeController@stepTwo')->name('step-2');
+Route::get('step-3/{id}', 'EmployeeController@stepThree')->name('step-3');
+Route::get('step-4/{id}', 'EmployeeController@stepFour')->name('step-4');
+Route::get('step-5/{id}', 'EmployeeController@stepFive')->name('step-5');
+
+//edit
+Route::get('step-1/edit/{id}', 'EmployeeController@editStepOne')->name('step-1.edit');
+Route::get('step-2/edit/{id}', 'EmployeeController@editStepTwo')->name('step-2.edit');
+Route::get('step-3/edit/{id}', 'EmployeeController@editStepThree')->name('step-3.edit');
+Route::get('step-4/edit/{id}', 'EmployeeController@editStepFour')->name('step-4.edit');
+Route::get('step-5/edit/{id}', 'EmployeeController@editStepFive')->name('step-5.edit');
+//edit
+
 Route::get('thanks', 'EmployeeController@thanks')->name('thanks');
+
 //Admin login
 Route::get('admin/login', 'Admin\AdminController@login')->name('admin.login');
 Route::post('authenticate', 'Admin\AdminController@authenticate')->name('authenticate');

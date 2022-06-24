@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row back-image"></div>
             @if (session('success'))
-            <div class="callout callout-success"  style="background-color:#df69a2;height: 50px;text-align: center;font-size:30px;" >                    {{ session('success') }}
+            <div class="callout callout-success"  style="background-color: #e165aa;height: AUTO;text-align: center;font-size: 20px;MARGIN: 0 auto;width: 100%;color: #e8e8e8;" >                    {{ session('success') }}
                 </div>
             @endif
             <form action="{{ route('employee.store') }}" id="regform"  class="my-repeater" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
@@ -76,7 +76,8 @@
                             </div>
                         </div>
                         <div class="col-md-12 submit-btn">
-                            <button class="btn btn-success" type="submit" style="cursor: pointer" id="submit">Submit</button>
+                            <a href="{{ route('step-3.edit', $employee_id) }}" class="btn btn-success button_save">Previouse</a>
+                            <button class="btn btn-success button_save" type="submit" style="cursor: pointer;" id="submit">Save & Next</button>
                         </div>
                     </div>
                 </div>

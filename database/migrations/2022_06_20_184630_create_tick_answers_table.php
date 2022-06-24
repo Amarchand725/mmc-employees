@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmployeeEducationDocumentsTable extends Migration
+class CreateTickAnswersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateEmployeeEducationDocumentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('employee_education_documents', function (Blueprint $table) {
+        Schema::create('tick_answers', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('employee_id');
-            $table->string('type')->nullable();
-            $table->string('name')->nullable();
-            $table->string('document');
-            $table->string('deleted_at')->nullable();
+            $table->bigInteger('question_id');
+            $table->boolean('answer')->default(0);
+            $table->string('details')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateEmployeeEducationDocumentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employee_education_documents');
+        Schema::dropIfExists('tick_answers');
     }
 }
